@@ -1,0 +1,29 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # Or "pip" or another supported package manager
+    directory: "/" # Location of your package file
+    schedule:
+      interval: "weekly" # How often to check for updates
+      day: "monday" # Which day to check (only applies if interval is daily/weekly)
+      time: "04:00" # Time of day to check for updates (UTC)
+    commit-message:
+      prefix: "chore" # Optional prefix for commit messages
+    open-pull-requests-limit: 10 # Limit the number of open PRs
+    versioning-strategy: "increase" # Can be auto, widen, increase or lockfile-only
+    labels:
+      - "dependencies"
+      - "security"
+
+  - package-ecosystem: "pip"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+    commit-message:
+      prefix: "chore"
+    open-pull-requests-limit: 5
+    versioning-strategy: "auto"
+    labels:
+      - "dependencies"
+      - "security"
